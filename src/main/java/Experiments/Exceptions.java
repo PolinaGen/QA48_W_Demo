@@ -1,6 +1,7 @@
 package Experiments;
 
 public class Exceptions {
+
     public static void main(String[] args) {
         String[] atrArray = {"str1", "str2", "str3"};
         uncheckedExceptionStr(atrArray);

@@ -1,11 +1,17 @@
 package Experiments;
 
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
 public class CssSelectors {
 
     WebDriver driver = new ChromeDriver();
-
     @Test
+
     public void selectorsHomePage() {
         driver.get("https://demoqa.com/");
         driver.manage().window().maximize();
@@ -14,7 +20,7 @@ public class CssSelectors {
         //WebElements divElements = driver.findElement(By.className("card-up"));
         //WebElements divElements = driver.findElement(By.cssSelector(".card-up"));
         //WebElements divElements = driver.findElement(By.className("*[class='card-up']"));
-        WebElements divElements = driver.findElement(By.className("div[class='card-up']"));
+        WebElement divElements = driver.findElement(By.className("div[class='card-up']"));
 
         divElements.click();
         pause(5);
@@ -28,17 +34,22 @@ public class CssSelectors {
         btnImpressive.click();
         pause(5);
 
-        WebElement btnButtons = driver.findElement(By.id("item-4"));
+        //WebElement btnButtons = driver.findElement(By.id("item-4"));
+        WebElement btnButtons = driver.findElement(By.cssSelector("li:nth-child(5)"));
         btnButtons.click();
         //WebElement btnDoubleClick = driver.findElement(By.id("doubleClickBtn"));
         WebElement btnDoubleClick = driver.findElement(By.cssSelector("#doubleClickBtn"));
         btnDoubleClick.click();
         pause(5);
 
+        driver.navigate().back();
+        driver.navigate().back();
+        pause(5);
 
         //driver.close();
         driver.quit();
     }
+
 
     public void pause(int time) {
         try {
